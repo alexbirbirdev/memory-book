@@ -1,0 +1,1 @@
+default_app_config = 'memory_book_app.apps.MemoryBookConfig'

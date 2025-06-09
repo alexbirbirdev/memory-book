@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import './base.css';
+
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+  
+  font-weight: normal;
+}
+
+body.search-active {
+    overflow: hidden;
+  }
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    
+  }
+  body.search-active {
+    padding-right: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 100% !important;
+  }
+}

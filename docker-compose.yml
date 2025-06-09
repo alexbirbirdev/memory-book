@@ -1,0 +1,49 @@
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: memory_book
+      POSTGRES_USER: memory_admin
+      POSTGRES_PASSWORD: memory_pass
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U memory_admin -d memory_book"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: ./backend
+    command: python backend/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - static_volume:/app/backend/staticfiles
+      - media_volume:/app/backend/mediafiles
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_NAME: memory_book
+      DB_USER: memory_admin
+      DB_PASSWORD: memory_pass
+      DB_HOST: db
+      DB_PORT: 5432
+    ports:
+      - "8000:8000"
+    
+  frontend:
+    build: ./frontend2
+    ports:
+      - "5173:80"
+    depends_on:
+      - web
+    restart: unless-stopped
+
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
