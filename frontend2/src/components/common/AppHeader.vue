@@ -128,7 +128,7 @@ export default {
       </div>
       <a
         class="hover:text-[#0A2E5E] text-base duration-200 inline-block relative before:w-full before:h-[2px] before:absolute before:top-full before:left-0 before:opacity-0 before:duration-200 before:bg-[#0A2E5E]"
-        href="http://127.0.0.1:8000/admin"
+        href="http://memory-book.bybirukov.ru:8100/admin"
         >Профиль</a
       >
     </div>
@@ -331,7 +331,7 @@ export default {
           >
         </div>
         <a
-          href="http://127.0.0.1:8000/admin/"
+          href="http://memory-book.bybirukov.ru:8100/admin"
           class="flex items-center duration-200 hover:bg-blue-100 hover:scale-105 justify-center rounded-xl bg-white p-2 mr-2"
         >
           <svg

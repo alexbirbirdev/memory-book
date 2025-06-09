@@ -30,7 +30,7 @@ services:
       DB_USER: memory_admin
       DB_PASSWORD: memory_pass
       DB_HOST: db
-      DB_PORT: 5433
+      DB_PORT: 5432
     ports:
       - "8100:8000"
     
