@@ -23,6 +23,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@memory-book.bybirukov.ru << 'EOF'
             cd /srv/projects/memory-book.bybirukov.ru
             git pull origin main
-            docker-compose down
-            docker-compose up -d --build
+            docker compose down
+            docker compose up -d --build
           EOF
