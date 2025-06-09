@@ -3,7 +3,7 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - main  # или твоя основная ветка
+      - main
 
 jobs:
   deploy:
@@ -21,9 +21,8 @@ jobs:
       - name: Deploy via SSH
         run: |
           ssh -o StrictHostKeyChecking=no user@your.server.ip << 'EOF'
-          cd /srv/projects/memory-book.bybirukov.ru
-          git pull origin main
-          docker-compose down
-          docker-compose up -d --build
-        EOF
-
+            cd /srv/projects/memory-book.bybirukov.ru
+            git pull origin main
+            docker-compose down
+            docker-compose up -d --build
+          EOF
