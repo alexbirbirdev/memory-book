@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no user@your.server.ip << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@memory-book.bybirukov.ru << 'EOF'
             cd /srv/projects/memory-book.bybirukov.ru
             git pull origin main
             docker-compose down
