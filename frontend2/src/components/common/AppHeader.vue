@@ -231,10 +231,10 @@ export default {
       />
     </div>
   </div>
-
+  <!-- 0A2E5E -->
   <header
     ref="mainHeader"
-    class="flex justify-center bg-[#0A2E5E] py-2 xs:py-4"
+    class="flex justify-center bg-red-200 py-2 xs:py-4"
   >
     <div
       class="fixed w-full h-screen bg-[#0A2E5E]/40 top-0 left-0 duration-200"
