@@ -20,7 +20,7 @@ export default {
   methods: {
     downloadFile(url) {
       const link = document.createElement("a");
-      link.href = url;
+      link.href = $formatImageUrl(url);
       link.download = ""; // если хочешь задать имя, можешь указать: 'filename.pdf'
       link.target = '_blank';
       link.click();
