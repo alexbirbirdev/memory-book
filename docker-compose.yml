@@ -17,7 +17,7 @@ services:
 
   web:
     build: ./backend
-    command: sudo -u www-data python backend/manage.py runserver 0.0.0.0:8000
+    command: python backend/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
       - static_volume:/app/backend/staticfiles
