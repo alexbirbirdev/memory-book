@@ -47,7 +47,7 @@ export default {
         conflict: {
           label: "Выберите конфликт",
           placeholder: "Выберите конфликт",
-          options: ["СВО", "ВОВ"],
+          options: ["СВО", "Великая отечественная война"],
         },
         rank: {
           label: "Воинское звание",
@@ -177,7 +177,7 @@ export default {
 
         // Фильтрация по роду войск
         const matchArmyBranch = this.filters.armyBranch
-          ? vet.branch_of_service?.name === this.filters.armyBranch
+          ? vet.military_unit === this.filters.armyBranch
           : true;
 
         // Фильтрация по месту службы (поиск подстроки)
