@@ -5,9 +5,11 @@ import router from './router'
 import globalComponents from './components/common/global-components'
 import PrimeVue from 'primevue/config'
 import Carousel from 'primevue/carousel'
+import { formatImageUrl } from './utils/formatters'
 
 const app = createApp(App)
 
+app.config.globalProperties.$formatImageUrl = formatImageUrl
 
 globalComponents.forEach(component => {
     app.component(component.name, component)

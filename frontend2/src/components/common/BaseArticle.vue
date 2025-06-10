@@ -29,28 +29,6 @@ export default {
       };
       return date.toLocaleString("ru-RU", options);
     },
-
-    formatImageUrl(url) {
-      if (!url) return "";
-      try {
-        // Добавим схему, если её нет (на всякий случай)
-        const hasProtocol =
-          url.startsWith("http://") || url.startsWith("https://");
-        const fullUrl = hasProtocol ? url : "http://" + url;
-
-        const parsed = new URL(fullUrl);
-
-        // Пропустим, если порт уже есть
-        if (parsed.port) return parsed.toString();
-
-        // Вставим порт 8100
-        parsed.port = "8100";
-        return parsed.toString();
-      } catch (e) {
-        // Если что-то пошло не так — вернём оригинал
-        return url;
-      }
-    },
   },
 
   watch: {},
