@@ -22,7 +22,6 @@ services:
       - .:/app
       - static_volume:/app/backend/staticfiles
       - media_volume:/app/backend/mediafiles
-      - ./media:/app/media 
     depends_on:
       db:
         condition: service_healthy
