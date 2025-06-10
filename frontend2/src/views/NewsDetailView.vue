@@ -47,7 +47,7 @@ export default {
       try {
         this.isLoading = true;
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/news/` + this.$route.params.id);
-
+        console.log(response.data)
         this.news = response.data;
         this.$route.meta.title = response.data.title;
         this.newsTitle = response.data.title;

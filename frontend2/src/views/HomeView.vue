@@ -74,7 +74,7 @@ export default {
       try {
         this.bannerLoading = true;
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/banners/`);
-        console.log(response.data)
+        // console.log(response.data)
         this.bannerSlides = response.data.results;
       } catch (error) {
         console.log(error);
@@ -86,7 +86,7 @@ export default {
       try {
         this.latestarticleLoading = true;
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/articles/`);
-        console.log(response.data)
+        // console.log(response.data)
         this.article = response.data.results;
       } catch (error) {
         console.log(error);

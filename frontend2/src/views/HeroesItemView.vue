@@ -397,7 +397,7 @@ export default {
             class="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-md transition rec-item"
           >
             <img
-              :src="$formatImageUrl(material.image)"
+              :src="material.image"
               alt="Материал"
               class="w-full aspect-video object-cover"
             />
