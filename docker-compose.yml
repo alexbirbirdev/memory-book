@@ -21,6 +21,9 @@ services:
     volumes:
       - ./backend:/app  # Основной код
       - ./media:/app/media  # Медиа файлы
+    depends_on:
+      db:
+        condition: service_healthy
     environment:
       DB_NAME: memory_book
       DB_USER: memory_admin
@@ -30,10 +33,7 @@ services:
       MEDIA_ROOT: /app/media  # Явное указание пути
     ports:
       - "8100:8000"
-    depends_on:
-      db:
-        condition: service_healthy
-
+    
   frontend:
     build: ./frontend2
     ports:
@@ -42,5 +42,8 @@ services:
       - web
     restart: unless-stopped
 
+
 volumes:
   postgres_data:
+  static_volume:
+  media_volume:
