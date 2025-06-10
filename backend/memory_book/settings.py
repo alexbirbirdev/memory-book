@@ -112,7 +112,7 @@ REST_FRAMEWORK = {
         'rest_framework.filters.OrderingFilter',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  # Глобальная пагинация
-    'PAGE_SIZE': 10,  # Значение по умолчанию для limit
+    'PAGE_SIZE': 10000000,  # Значение по умолчанию для limit
     'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
 }
 
