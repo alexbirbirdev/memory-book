@@ -179,7 +179,7 @@ export default {
       </div>
       <div
         class="bg-cover bg-center aspect-video md:h-full lg:aspect-[16/9]"
-        :style="'background-image: url(' + $formatImageUrl(findBlock.image) + ')'"
+        :style="'background-image: url(' + findBlock.image + ')'"
       ></div>
     </section>
     <VSearchInfoLoader v-else />
