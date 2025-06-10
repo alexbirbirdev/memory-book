@@ -17,23 +17,23 @@ services:
 
   web:
     build: ./backend
-    command: python backend/manage.py runserver 0.0.0.0:8000
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/app
-      - static_volume:/app/backend/staticfiles
-      - media_volume:/app/backend/mediafiles
-    depends_on:
-      db:
-        condition: service_healthy
+      - ./backend:/app  # Основной код
+      - ./media:/app/media  # Медиа файлы
     environment:
       DB_NAME: memory_book
       DB_USER: memory_admin
       DB_PASSWORD: memory_pass
       DB_HOST: db
       DB_PORT: 5432
+      MEDIA_ROOT: /app/media  # Явное указание пути
     ports:
       - "8100:8000"
-    
+    depends_on:
+      db:
+        condition: service_healthy
+
   frontend:
     build: ./frontend2
     ports:
@@ -42,8 +42,5 @@ services:
       - web
     restart: unless-stopped
 
-
 volumes:
   postgres_data:
-  static_volume:
-  media_volume:

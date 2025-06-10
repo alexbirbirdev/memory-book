@@ -1,24 +1,13 @@
-FROM python:3.12-slim
-
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
-RUN useradd -m appuser
+FROM python:3.9-slim
 
 WORKDIR /app
 
 COPY requirements.txt .
-
-RUN pip install --upgrade pip setuptools && pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN python ./manage.py collectstatic --noinput
-RUN mkdir -p /app/backend/mediafiles/articles/previews && \
-    chown -R appuser:appuser /app/backend/mediafiles
-RUN mkdir -p /app/mediafiles /app/backend/mediafiles && \
-    chown -R appuser:appuser /app/mediafiles /app/backend/mediafiles
+RUN mkdir -p /app/media && \
+    chmod -R 775 /app/media
 
-USER appuser
-
-CMD ["python", "./manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
