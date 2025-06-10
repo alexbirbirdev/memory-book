@@ -14,7 +14,8 @@ RUN pip install --upgrade pip setuptools && pip install -r requirements.txt
 COPY . .
 
 RUN python ./manage.py collectstatic --noinput
-
+RUN mkdir -p /app/backend/mediafiles/articles/previews && \
+    chown -R appuser:appuser /app/backend/mediafiles
 RUN mkdir -p /app/mediafiles /app/backend/mediafiles && \
     chown -R appuser:appuser /app/mediafiles /app/backend/mediafiles
 
