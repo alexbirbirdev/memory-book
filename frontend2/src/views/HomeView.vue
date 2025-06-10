@@ -128,7 +128,7 @@ export default {
         <template #item="{ data }">
           <div
             class="relative aspect-video md:aspect-[3/1] bg-cover bg-center flex items-center justify-center rounded-2xl overflow-hidden shadow"
-            :style="'background-image: url(' + data.image_desktop + ')'"
+            :style="'background-image: url(' + $formatImageUrl(data.image_desktop) + ')'"
           >
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="relative z-10 text-white text-center px-4 max-w-xl">
@@ -179,7 +179,7 @@ export default {
       </div>
       <div
         class="bg-cover bg-center aspect-video md:h-full lg:aspect-[16/9]"
-        :style="'background-image: url(' + findBlock.image + ')'"
+        :style="'background-image: url(' + $formatImageUrl(findBlock.image) + ')'"
       ></div>
     </section>
     <VSearchInfoLoader v-else />

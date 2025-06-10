@@ -122,7 +122,7 @@ export default {
     <!-- Детальная картинка -->
     <img
       v-if="article.detail_image"
-      :src="article.detail_image"
+      :src="$formatImageUrl(article.detail_image)"
       alt="Детальная картинка новости"
       class="w-full rounded-lg shadow-lg mb-4 md:mb-12 object-cover"
     />

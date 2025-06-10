@@ -89,7 +89,7 @@ export default {
     <!-- Детальная картинка -->
     <img
       v-if="news.detail_image"
-      :src="news.detail_image"
+      :src="$formatImageUrl(news.detail_image)"
       alt="Детальная картинка новости"
       class="w-full rounded-lg shadow-lg mb-4 md:mb-12 object-cover"
     />

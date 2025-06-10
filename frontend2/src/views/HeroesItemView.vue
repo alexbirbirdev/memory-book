@@ -132,7 +132,7 @@ export default {
         <div
           v-if="!isLoading"
           class="max-lg:hidden aspect-[3/4] shadow rounded-2xl bg-center bg-cover"
-          :style="'background-image: url(' + veteran.photo + ')'"
+          :style="'background-image: url(' + $formatImageUrl(veteran.photo) + ')'"
         ></div>
         <VLoader v-else class="w-full aspect-[3/4]" />
 
@@ -397,7 +397,7 @@ export default {
             class="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-md transition rec-item"
           >
             <img
-              :src="material.image"
+              :src="$formatImageUrl(material.image)"
               alt="Материал"
               class="w-full aspect-video object-cover"
             />
