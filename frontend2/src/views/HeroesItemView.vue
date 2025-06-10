@@ -173,7 +173,7 @@ export default {
         <div
           v-if="!isLoading"
           class="lg:hidden aspect-[3/4] shadow rounded-2xl bg-center bg-cover"
-          :style="'background-image: url(' + veteran.photo + ')'"
+          :style="'background-image: url(' + $formatImageUrl(veteran.photo) + ')'"
         ></div>
         <VLoader v-else class="w-full aspect-[3/4]" />
         <div v-if="!isLoading" class="bg-white p-4 sm:p-6 rounded-2xl shadow">
@@ -319,7 +319,7 @@ export default {
           </div>
         </div>
         <section
-          v-if="!isLoading && veteran.biography"
+          v-if="!isLoading && veteran.biography.length"
           class="bg-white p-4 sm:p-6 rounded-2xl shadow"
         >
           <h2 class="text-2xl font-bold mb-4">Биография</h2>
@@ -337,7 +337,7 @@ export default {
             </li>
           </ul> -->
         </section>
-        <section v-else class="bg-white p-4 sm:p-6 rounded-2xl shadow">
+        <section v-if="isLoading" class="bg-white p-4 sm:p-6 rounded-2xl shadow">
           <VLoader class="h-8 w-1/2 mb-4" />
           <ul class="space-y-4">
             <li v-for="el in 2" :key="el">
@@ -348,7 +348,7 @@ export default {
         </section>
 
         <section
-          v-if="!isLoading && veteran.rewards.length"
+          v-if="!isLoading && veteran.rewards.length > 0"
           class="bg-white p-4 sm:p-6 rounded-2xl shadow"
         >
           <h2 class="text-2xl font-bold mb-4">Награды</h2>

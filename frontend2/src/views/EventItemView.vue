@@ -39,7 +39,7 @@ export default {
           `${import.meta.env.VITE_API_URL}/events/` + this.$route.params.id
         );
 
-        console.log(response.data);
+        // console.log(response.data);
         this.news = response.data;
         this.$route.meta.title = response.data.title;
         this.newsTitle = response.data.title;
@@ -109,6 +109,13 @@ export default {
           {{ news.format == "offline" ? "Оффлайн" : "" }}
           {{ news.format == "hybrid" ? "Гибридный" : "" }}
         </span>
+      </div>
+
+      <div class="flex flex-col gap-1 mt-6" v-if="news.location">
+        <div class="text-sm text-gray-500">Где проходит</div>
+        <div class="bg-neutral-100 text-neutral-900 rounded-xl px-4 py-2">
+          {{ news.location }}
+        </div>
       </div>
 
       <!-- Слайдер фото -->

@@ -68,9 +68,20 @@ export default {
     // getNew() {
     //   this.newsTitle = this.news.title;
     // },
+    formattedDate() {
+      const date = new Date(this.article.publish_date);
+      return date.toLocaleString("ru-RU", {
+        hour: "2-digit",
+        minute: "2-digit",
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      });
+    },
   },
 
   methods: {
+    
     async getArticle() {
       try {
         this.isLoading = true;
@@ -107,29 +118,30 @@ export default {
   <div class="container mx-auto px-4">
     <VBreadcrumds v-if="!isLoading" ref="breadcrumbs" />
   </div>
-  <div
-    v-if="!isLoading"
-    class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-md"
-  >
-    <!-- Заголовок новости -->
-    <h1
-      v-if="article.title"
-      class="text-2xl md:text-3xl font-extrabold mb-4 md:mb-10 text-gray-900 border-b pb-4"
+  <div class="container mx-auto px-4">
+    <div
+      v-if="!isLoading"
+      class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-md"
     >
-      {{ article.title }}
-    </h1>
+      <!-- Заголовок новости -->
+      <h1
+        v-if="article.title"
+        class="text-2xl md:text-3xl font-extrabold mb-4 md:mb-10 text-gray-900 border-b pb-4"
+      >
+        {{ article.title }}
+      </h1>
 
-    <!-- Детальная картинка -->
-    <img
-      v-if="article.detail_image"
-      :src="$formatImageUrl(article.detail_image)"
-      alt="Детальная картинка новости"
-      class="w-full rounded-lg shadow-lg mb-4 md:mb-12 object-cover"
-    />
+      <!-- Детальная картинка -->
+      <img
+        v-if="article.detail_image"
+        :src="$formatImageUrl(article.detail_image)"
+        alt="Детальная картинка новости"
+        class="w-full rounded-lg shadow-lg mb-4 md:mb-12 object-cover"
+      />
 
-    <!-- Слайдер фото -->
+      <!-- Слайдер фото -->
 
-    <!-- <Carousel
+      <!-- <Carousel
       v-if="news && news.images.length > 0 && !isLoading"
       :value="news.images"
       :numVisible="1"
@@ -151,30 +163,35 @@ export default {
       </template>
     </Carousel> -->
 
-    <!-- Детальное описание -->
-    <div
-      v-if="article.content"
-      class="prose prose-lg max-w-none text-gray-800"
-      v-html="article.content"
-    ></div>
-  </div>
-  <div v-else class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-md">
-    <!-- Заголовок новости -->
-    <VLoader class="w-2/3 h-16 mb-10" />
+      <!-- Детальное описание -->
+      <div
+        v-if="article.content"
+        class="prose prose-lg max-w-none text-gray-800"
+        v-html="article.content"
+      ></div>
 
-    <!-- Детальная картинка -->
-    <VLoader class="w-full aspect-video shadow-lg mb-12" />
+      <div class="prose prose-lg max-w-none text-xs text-gray-500 mt-4">
+        {{ formattedDate }}
+      </div>
+    </div>
+    <div v-else class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-md">
+      <!-- Заголовок новости -->
+      <VLoader class="w-2/3 h-16 mb-10" />
 
-    <div class="flex flex-col items-start gap-2">
-      <VLoader class="w-1/2 h-3" />
-      <VLoader class="w-2/3 h-3" />
-      <VLoader class="w-3/4 h-3" />
-      <VLoader class="w-1/2 h-3" />
-      <VLoader class="w-2/3 h-3" />
-      <VLoader class="w-3/4 h-3" />
-      <VLoader class="w-1/2 h-3" />
-      <VLoader class="w-2/3 h-3" />
-      <VLoader class="w-3/4 h-3" />
+      <!-- Детальная картинка -->
+      <VLoader class="w-full aspect-video shadow-lg mb-12" />
+
+      <div class="flex flex-col items-start gap-2">
+        <VLoader class="w-1/2 h-3" />
+        <VLoader class="w-2/3 h-3" />
+        <VLoader class="w-3/4 h-3" />
+        <VLoader class="w-1/2 h-3" />
+        <VLoader class="w-2/3 h-3" />
+        <VLoader class="w-3/4 h-3" />
+        <VLoader class="w-1/2 h-3" />
+        <VLoader class="w-2/3 h-3" />
+        <VLoader class="w-3/4 h-3" />
+      </div>
     </div>
   </div>
 </template>
