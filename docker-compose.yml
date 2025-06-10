@@ -21,7 +21,8 @@ services:
     volumes:
       - .:/app
       - static_volume:/app/backend/staticfiles
-      - media_volume:/app/backend/mediafiles
+      - ./media:/app/media
+      # - media_volume:/app/backend/mediafiles
     depends_on:
       db:
         condition: service_healthy
@@ -46,4 +47,4 @@ services:
 volumes:
   postgres_data:
   static_volume:
-  media_volume:
+  # media_volume:
