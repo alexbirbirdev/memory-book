@@ -90,7 +90,7 @@ export default {
 
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/documents`);
         this.docs = response.data.results
-        // console.log(response.data);
+        console.log(response.data);
       } catch (error) {
         console.log(error);
       } finally {
@@ -253,12 +253,16 @@ export default {
       <section>
         <h2 class="text-xl font-semibold mb-4">
           Найдено:
-          <!-- {{ filteredResults.length }} -->
+          {{ docs.length }}
         </h2>
 
-        <div class="flex flex-col gap-4">
+        <div v-if="!isListLoading" class="flex flex-col gap-4">
           <VDocumentItem v-for="doc in docs" :key="doc" :doc="doc"  />
         </div>
+        <div v-if="!isListLoading && !docs.length" class="flex flex-col gap-4">
+          Документов нет
+        </div>
+
 
         <div v-if="canShowMore" class="text-center mt-6">
           <VButton @click="loadMore">
