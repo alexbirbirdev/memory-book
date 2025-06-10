@@ -11,7 +11,7 @@ import DocumentsView from "@/views/DocumentsView.vue";
 import SearchResultView from "@/views/SearchResultView.vue";
 import EventsView from "@/views/EventsView.vue";
 import EventItemView from "@/views/EventItemView.vue";
-import NotFoundView from "@/views/NotFoundView.vue";
+// import NotFoundView from "@/views/NotFoundView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -126,14 +126,14 @@ const router = createRouter({
         title: "Профиль",
       },
     },
-    {
-      path: "/:pathMatch(.*)*",
-      name: "NotFound",
-      component: NotFoundView,
-      meta: {
-        title: "Страница не найдена",
-      },
-    },
+    // {
+    //   path: "/:pathMatch(.*)*",
+    //   name: "NotFound",
+    //   component: NotFoundView,
+    //   meta: {
+    //     title: "Страница не найдена",
+    //   },
+    // },
   ],
 });
 
