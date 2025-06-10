@@ -49,7 +49,7 @@ export default {
     <!-- <img :src="article.image" alt="Превью" class="w-full h-48 object-cover" /> -->
     <div
       class="w-full aspect-video bg-cover bg-center"
-      :style="{ backgroundImage: `url('${formatImageUrl(article.preview_image)}')` }"
+      :style="{ backgroundImage: `url('${$formatImageUrl(article.preview_image)}')` }"
     ></div>
     <div class="p-4 space-y-2">
       <p class="text-sm text-gray-500">
