@@ -49,7 +49,8 @@ export default {
     <!-- <img :src="article.image" alt="Превью" class="w-full h-48 object-cover" /> -->
     <div
       class="w-full aspect-video bg-cover bg-center"
-      :style="'background-image: url(' + article.preview_image + ');'"
+      :style="{ backgroundImage: `url('${article.preview_image}')` }"
+
     ></div>
     <div class="p-4 space-y-2">
       <p class="text-sm text-gray-500">{{ formatDate(article.publish_date) || "Дата не добавлена" }}</p>
