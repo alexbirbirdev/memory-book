@@ -25,8 +25,9 @@ RUN python manage.py collectstatic --noinput
 # Меняем владельца медиа папки
 RUN chown -R appuser:appuser /app/media
 
-RUN mkdir -p /app/backend/mediafiles && \
+RUN mkdir -p /app/backend/mediafiles/articles/previews && \
     chown -R appuser:appuser /app/backend/mediafiles
+
 
 
 # Переключаемся на не-root пользователя
