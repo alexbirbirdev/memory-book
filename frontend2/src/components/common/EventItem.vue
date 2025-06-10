@@ -45,7 +45,7 @@ export default {
   >
     <!-- Картинка -->
     <img
-      :src="event.preview_image"
+      :src="$formatImageUrl(event.preview_image)"
       alt="Превью"
       class="w-full aspect-video object-cover"
     />

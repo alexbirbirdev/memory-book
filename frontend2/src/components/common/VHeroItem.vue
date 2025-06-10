@@ -39,7 +39,7 @@ export default {
     class="bg-white rounded-lg overflow-hidden shadow flex flex-col duration-200 hover:shadow-xl"
   >
     <img
-      :src="vet.photo"
+      :src="$formatImageUrl(vet.photo)"
       alt="Фото ветерана"
       class="w-full aspect-[3/4] object-cover mb-3"
       loading="lazy"

@@ -51,7 +51,7 @@ export default {
   >
     <div
       class="w-full aspect-video bg-cover bg-center"
-      :style="'background-image: url(' + news.preview_image + ');'"
+      :style="'background-image: url(' + $formatImageUrl(news.preview_image) + ');'"
     ></div>
     <div class="p-4">
       <p class="text-sm text-gray-500">{{ formattedDate || "Дата не добавлена" }}</p>
